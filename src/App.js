@@ -1,24 +1,27 @@
-import logo from './logo.svg';
+import { useEffect, useState } from 'react';
 import './App.css';
+import Home from './Home/Home';
+import {BrowserRouter,Route,Routes} from 'react-router-dom'
+import Auth from './auth/auth';
+import ResponsiveAppBar from './components/appbar/AppBar'
 
-function App() {
+
+
+const App=()=> {
+  const [data,setData] = useState(JSON.parse(localStorage.getItem('profile')))
+  console.log(data,'datatattat');
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="main">
+       <BrowserRouter>
+   
+   <Routes>
+     <Route path='/' element={<Home/>} />
+     <Route path='/auth' element={<Auth data={data}/>} />
+   </Routes>
+ </BrowserRouter> 
     </div>
+
+   
   );
 }
 

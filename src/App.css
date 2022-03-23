@@ -1,38 +1,147 @@
-.App {
-  text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400&display=swap');
+*{
+  margin: 0;
+  padding:0;
+  
+}
+body{
+  overflow: hidden;
+}
+.form-main{
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 60vh;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.form_display{
+  display:flex;
+  
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.content_text{
+  display:flex;
+  justify-content: space-between;
+  
+  align-items: center;
+}
+.btn{
+  margin: 0 4px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
+.action_button{
+  margin: 0 5px;
+}
+
+.box{
+  position: relative;
+  box-shadow: 3px -1px 2px 1px rgba(0,0,0,0.2);
+  width: 420px;
+  padding: 9px 8px;
+  margin: 5px 3px 0 5px;
+  border-radius: 5px;
+  font-size: 20px;
+  color:rgb(57, 29, 29);
+  letter-spacing: 1.3px;
+  font-family: 'Fredoka', sans-serif;
+}
+
+.btn_add{
+  border:1px solid red;
+  padding:10px 0;
+}
+
+.react_icon{
+  color:red;
+  padding:0px 3px;
+  font-size: 24px;
+  
+}
+
+.auth{
+  display:flex;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  min-height: 80vh;
+  
 }
 
-.App-link {
-  color: #61dafb;
+.form{
+  display:flex;
+  flex-direction: column;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.main{
+  min-height: 100vh;
+  background-color: #282c34;
 }
+
+body{
+  min-height: 100vh;
+  
+}
+
+.sign_title,p{
+  padding:5px;
+  margin: 8px;
+  font-size: 17px;
+  font-weight: 500;
+}
+p{
+  position: relative;
+  left: -5px;
+}
+.signin_signup{
+  position: relative;
+}
+.sign_title{
+  position: absolute;
+  right: 0;
+  top:-6px;
+  font-size: 19px;
+  font-weight: 500;
+}
+.sign{
+  top:18px;
+  margin: 20px;
+  padding:5px;
+}
+
+img{
+  border-radius:50%;
+  width:42px;
+  height:42px;
+}
+
+.image{
+  display:flex;
+  justify-content:center;
+  align-items: center;
+ margin:0 40px;
+  }
+
+
+  @media screen and (max-width:440px){
+    .para{
+    font-size: 15px;
+  }
+  }
+
+  @media screen and (max-width:700px){
+    .box{
+   width:300px;
+  }
+  }
+
+  @media screen and (max-width:400px){
+    .box{
+   width:220px;
+  }
+  }
+  
+  @media screen and (max-width:300px){
+    .box{
+   width:169px;
+  }
+  }
+  
