@@ -10,7 +10,7 @@ const Post = ({x,setCurrentId}) => {
   const [data,setData] = useState(JSON.parse(localStorage.getItem('profile')))
   const post=useSelector(state=>state.alldata)
     const dispatch=useDispatch()
-    console.log(post,'posttt');
+    
     const deleted=(id)=>{
    
         dispatch(deletePost(id))
@@ -20,9 +20,7 @@ const Post = ({x,setCurrentId}) => {
         setCurrentId(x._id)
         console.log(id,'update');
       }
-      // const focusInput = () => {
-      //   inputElement.current.focus();
-      // };
+     
   return (
     <div  className="content_text">
    { data &&  <div className='box'>{x.input}</div>}

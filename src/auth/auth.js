@@ -25,7 +25,7 @@ const Auth = ({data}) => {
      const value = useSelector(state=>state.auth)
     //  console.log(data,'dataaajil',);
       const {authData,loading} = value
-    console.log(data,'dataa');
+    // console.log(data,'dataa');
     const dispatch=useDispatch()
     const history=useNavigate()
     const classes = useStyles();
@@ -82,8 +82,9 @@ const Auth = ({data}) => {
           // }
          
           dispatch(register(formData,history))
+          history('/',{replace:true})
         if(!data){
-          console.log('not dataaa');
+          // console.log('not dataaa');
           return toast.error('Sorry=>user already exist,please signup with other email')
         }else{
           console.log('hai data signup, ');
