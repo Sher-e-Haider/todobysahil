@@ -21,7 +21,7 @@ export const register=(formData,history)=>async(dispatch)=>{
     try {
         const {data} = await Axios.post(`${url}/signup`,formData)
         dispatch({type:'AUTH',data})
-        history('/',{replace:true})
+        // history('/',{replace:true})
     } catch (error) {
         
         console.log(error);

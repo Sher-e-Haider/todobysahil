@@ -82,7 +82,7 @@ const Auth = ({data}) => {
           // }
          
           dispatch(register(formData,history))
-          history('/',{replace:true})
+          // history('/',{replace:true})
         if(!data){
           // console.log('not dataaa');
           return toast.error('Sorry=>user already exist,please signup with other email')

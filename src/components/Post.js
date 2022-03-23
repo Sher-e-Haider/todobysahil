@@ -1,14 +1,12 @@
 import React from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import { deletePost } from '../redux/actions/indexAc'
-import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
 import EditIcon from '@mui/icons-material/Edit';
 import {MdDelete } from 'react-icons/md';
 import { useState } from 'react';
 
 const Post = ({x,setCurrentId}) => {
   const [data,setData] = useState(JSON.parse(localStorage.getItem('profile')))
-  const post=useSelector(state=>state.alldata)
     const dispatch=useDispatch()
     
     const deleted=(id)=>{
