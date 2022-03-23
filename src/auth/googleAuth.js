@@ -14,7 +14,7 @@ const GoogleAuth = () => {
     const googleSuccess= async (res)=>{
         const result = res?.profileObj
         const token = res?.tokenId
-
+        
         try {
             dispatch({type:'AUTH',data:{result,token}})
             history('/',{replace:true})
@@ -48,7 +48,7 @@ const GoogleAuth = () => {
                  )}
                      onSuccess={googleSuccess}
                      onFailure={googleFailure}
-                     cookiePolicy="single_host_origin"
+                    //  cookiePolicy="single_host_origin"
              />
     </div>
   )
