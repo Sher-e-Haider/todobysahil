@@ -17,13 +17,13 @@ import { TextField } from '@material-ui/core'
 const initialState= {firstname:'',lastname:'',email:'',password:'',confirmPassword:''}
 const Auth = ({data}) => {
     const [isSignup,setIsSignup] = useState(true)
-    // const [data,setData] = useState(JSON.parse(localStorage.getItem('profile')))
+    // const [user,setData] = useState(JSON.parse(localStorage.getItem('profile')))
     const [show,setShow] = useState(true)
-    
-    const [error,setError] = useState(false)
+    const user = JSON.parse(localStorage.getItem('profile'))
+    // console.log(user,'uswr');
     const [formData,setFormData] = useState(initialState)
      const value = useSelector(state=>state.auth)
-    //  console.log(data,'dataaajil',);
+      console.log(data,'dataaajil',);
       const {authData,loading} = value
     // console.log(data,'dataa');
     const dispatch=useDispatch()
@@ -33,15 +33,21 @@ const Auth = ({data}) => {
         e.preventDefault()
         
          if(!isSignup){
-          // toast.success('successfully login')
-         
-          dispatch(signin(formData,history))
-        
-           
+          
+            dispatch(signin(formData,history))
                
-           if(!data){
-           return toast.error('username or password wrong')
+            setTimeout(()=>{
+         
+            if(!data){
+              console.log(data,'data',user);
+              return toast.error('username or password wrong')
+           }else{
+             console.log('hello');
            }
+          
+                   },1000)
+                     
+                 
           
        
       //     try {
@@ -80,15 +86,32 @@ const Auth = ({data}) => {
           //   toast.error(error.message)
           //   console.log('qqqq');
           // }
+          console.log(user,'userrrr');
+         if(formData.password===formData.confirmPassword){
+           dispatch(register(formData,history))
+           setTimeout(()=>{
          
-          dispatch(register(formData,history))
-          // history('/',{replace:true})
-        if(!data){
-          // console.log('not dataaa');
-          return toast.error('Sorry=>user already exist,please signup with other email')
-        }else{
-          console.log('hai data signup, ');
-        }
+            if(!data?._id){
+              console.log('data',user);
+              return toast.error('user alrready exists')
+           }else{
+              return toast.success('account created click on signIn') 
+           }
+          
+                   },1000)
+          
+         }else{
+          return toast.error('password and confirmPassword are not equal')
+         }
+          
+         
+        // if(!data){
+        //   // console.log('not dataaa');
+        //   return toast.error('Sorry=>user already exist,please signup with other email')
+        // }else{
+        //   console.log('hai data signup, ');
+        //   toast.success('created an account click on signin')
+        // }
       // console.log(formData,'pp');
       // if(!isSignup){
         
@@ -115,12 +138,8 @@ const Auth = ({data}) => {
    
     useEffect(()=>{
       if(isSignup){
-         if((formData.firstname && formData.lastname &&formData.confirmPassword) && (formData.email && formData.password) ){
+         if((formData.firstname && formData.lastname &&formData.confirmPassword) && formData.email && formData.password ){
          
-              if(formData.password!==formData.confirmPassword){
-                return toast.error('password and confirm password not equal ')
-              }
-              
               setShow(false)
          }else{
           setShow(true)
@@ -135,7 +154,7 @@ const Auth = ({data}) => {
      
       
      
-    },[formData])
+    },[formData,isSignup])
     
   return (
     <div className="pura_mai">

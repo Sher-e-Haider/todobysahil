@@ -9,16 +9,17 @@ import Post from '../components/Post'
 import ResponsiveAppBar from '../components/appbar/AppBar'
 
 
-const Home = () => {
+const Home = ({data,setData}) => {
   
     const [currentId,setCurrentId] = useState(null)
   const [loading,setLoading] = useState(false)
   const dispatch=useDispatch()
   const posts=useSelector(state=>state.alldata)
-  
+  const user=(JSON.parse(localStorage.getItem('profile')))
+  // console.log(user,'home.jssssss');
   useEffect(() => {
     dispatch(getPost())
-   
+    setData(user)
   }, [dispatch,posts])
   
   

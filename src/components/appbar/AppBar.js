@@ -32,8 +32,8 @@ export default function ButtonAppBar({setIsSignup}) {
     }else{
     
      history('/auth',{replace:true})
-     console.log('loppol');
-     setIsSignup(false)
+    //  console.log('loppol');
+    //  setIsSignup(false)
     }
    
   }

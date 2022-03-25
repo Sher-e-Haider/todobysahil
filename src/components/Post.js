@@ -8,7 +8,7 @@ import { useState } from 'react';
 const Post = ({x,setCurrentId}) => {
   const [data,setData] = useState(JSON.parse(localStorage.getItem('profile')))
     const dispatch=useDispatch()
-    
+  //  console.log(data,'Home.js');
     const deleted=(id)=>{
    
         dispatch(deletePost(id))
@@ -26,7 +26,7 @@ const Post = ({x,setCurrentId}) => {
    <div className="action_button">
    
    { 
-    (data?.result?.googleId === x?.creator || data?.result?._id === x?.creator) &&(
+    (data?.result?.googleId === x?.creator || data?.result?._id === x?.creator ||data?._id===x?.creator) &&(
       <div>
       <button className='react_icon' onClick={()=>deleted(x._id)}><MdDelete/></button>
      <button onClick={()=>update(x._id)}  className='btn'><EditIcon color='secondary' /></button>

@@ -19,9 +19,8 @@ const Form = ({currentId,setCurrentId}) => {
     
     const classes = useStyles();
     const [data,setData] = useState(JSON.parse(localStorage.getItem('profile')))
-    // const posts=useSelector(state=>state.alldata)
-    // const post = useSelector(state=>currentId? state.alldata.find(p=>p._id===currentId):null)   
-   useEffect(() => {
+  //  console.log(data,'lawarish');
+    useEffect(() => {
    
     if(data?.result?.googleId || data?.result?._id||data?._id){
       toast.success('successfully login')
@@ -39,7 +38,7 @@ const Form = ({currentId,setCurrentId}) => {
         
         if (!currentId) {
           dispatch(createPost({ ...postData, name: data?.result?.name }));
-         
+         console.log('create');
         } else {
           dispatch(updatePost(currentId, { ...postData, name: data?.result?.name }));
          
